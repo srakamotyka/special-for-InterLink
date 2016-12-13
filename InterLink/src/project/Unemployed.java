@@ -2,12 +2,23 @@ package project;
 
 public class Unemployed extends Person{
 
-	public Unemployed(String name, int age, boolean isHappy, int bankAccount) {
+	private boolean isWorking;
+
+	public Unemployed(String name, int age, boolean isHappy, int bankAccount, boolean isWorking) {
 		super();
 		this.setName(name);
 		this.setAge(age);
 		this.setHappy(isHappy);
 		this.setBankAccount(bankAccount);
+		this.setWorking(isWorking);
+	}
+
+	public boolean isWorking() {
+		return isWorking;
+	}
+
+	public void setWorking(boolean isWorking) {
+		this.isWorking = isWorking;
 	}
 
 	@Override
@@ -15,10 +26,12 @@ public class Unemployed extends Person{
 		if (getBankAccount() > 0) {
 			System.out.println("Since I am unemployed, I don't have any work to do! Yay!");
 			setHappy(true);
+			setWorking(false);
 		} else {
 			System.out.println("Money over! I have to find some work...");
 			System.out.println("[working...]");
 			setHappy(false);
+			setWorking(true);
 			setBankAccount((int) Math.random() * 20 + 5);
 		}
 	}
@@ -48,7 +61,8 @@ public class Unemployed extends Person{
 		return "Unemployed [Name = " + getName()
 				+ ", age = " + getAge()
 				+ ", bank account balance = " + getBankAccount()
-				+ ", isHappy = " + isHappy() + "]";
+				+ ", isHappy = " + isHappy()
+				+ ", isWorking = " + isWorking() + "]";
 	}
 
 }
