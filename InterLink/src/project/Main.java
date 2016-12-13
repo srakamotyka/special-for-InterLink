@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static Scanner sc = new Scanner(System.in);
-	public static Person unemployed = new Unemployed("Vasya", 19, true, 0);
+	public static Person unemployed = new Unemployed("Vasya", 19, true, 0, false);
 	public static Person developer = new JavaDeveloper("James", 25, true, 20, 50000);
 
 	public static void main(String[] args) {
